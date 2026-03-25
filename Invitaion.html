@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almarwa & Abdelrahman Wedding</title>
+    <!-- Elegant Serif and Script Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-accent: #6b21a8; /* Deep Purple to match flowers */
+            --bg-cream: #ffffff;
+        }
+
+        body {
+            background-color: var(--bg-cream);
+            font-family: 'Cormorant Garamond', serif;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1.2s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-container {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+        }
+
+        /* Image styling to match the uploaded geometric floral vibe */
+        .invitation-frame {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://raw.githubusercontent.com/ai-assets/wedding/main/floral-geometric.jpg'); /* Note: Placeholder for the style of your uploaded image */
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.9;
+            z-index: 0;
+        }
+
+        /* Fallback if external image isn't used: using a stylized CSS frame */
+        .fallback-bg {
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            border: 1px solid #d4af37;
+            pointer-events: none;
+        }
+
+        .script-font {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        @keyframes pulse-gold {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+
+        .btn-fancy {
+            animation: pulse-gold 2s infinite;
+        }
+
+        #details-section {
+            display: none;
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 1s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="text-stone-900">
+
+    <!-- HERO SECTION -->
+    <div id="intro-screen" class="hero-container px-6">
+        
+        <!-- The visual frame mimicking your uploaded image -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none p-4">
+            <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2070&auto=format&fit=crop" 
+                 class="w-full h-full object-contain opacity-20 absolute" alt="Floral frame decor">
+            <div class="w-[90vw] h-[85vh] border-[1px] border-stone-200 relative flex items-center justify-center">
+                <!-- Inner Gold Diamond mimicking the image -->
+                <div class="absolute w-full h-full border-[1px] border-stone-100 rotate-45 scale-75"></div>
+            </div>
+        </div>
+
+        <!-- TEXT OVERLAY -->
+        <div class="z-10 text-center max-w-sm">
+            <p class="text-[10px] tracking-[0.5em] uppercase mb-8 text-stone-500 reveal active">You are cordially invited to the wedding of</p>
+            
+            <h1 class="text-5xl md:text-6xl font-light tracking-widest mb-4 reveal active" style="transition-delay: 0.3s;">ALMARWA</h1>
+            <p class="script-font text-3xl my-2 reveal active" style="transition-delay: 0.5s;">and</p>
+            <h1 class="text-5xl md:text-6xl font-light tracking-widest mt-4 reveal active" style="transition-delay: 0.7s;">ABDELRAHMAN</h1>
+            
+            <div class="mt-12 reveal active" style="transition-delay: 1s;">
+                <p class="text-sm tracking-[0.3em] font-light">APRIL 25, 2026</p>
+            </div>
+        </div>
+
+        <!-- ACTION BUTTON -->
+        <div class="z-10 absolute bottom-16 flex flex-col items-center">
+            <button onclick="revealDetails()" class="btn-fancy px-12 py-4 bg-stone-900 text-white rounded-full tracking-[0.2em] text-[10px] uppercase font-bold shadow-xl hover:bg-stone-800 transition-all active:scale-95">
+                Open Invitation
+            </button>
+        </div>
+    </div>
+
+    <!-- REVEALED CONTENT -->
+    <div id="details-section" class="bg-white px-8 py-24 text-center max-w-2xl mx-auto relative z-20">
+        <div class="mb-16">
+            <img src="https://img.icons8.com/ios/50/000000/wedding-rings.png" class="w-8 mx-auto mb-6 opacity-30" alt="rings">
+            <h3 class="text-xs tracking-[0.4em] uppercase text-stone-400 mb-8">The Celebration</h3>
+            <p class="text-lg leading-relaxed italic text-stone-600">
+                Together with their families,<br>
+                Almarwa & Abdelrahman<br>
+                invite you to join them as they<br>
+                exchange vows and start their new life together.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-12 border-y border-stone-100 py-16 my-16">
+            <div>
+                <h4 class="text-xs tracking-[0.3em] uppercase mb-4 text-stone-400">Date & Time</h4>
+                <p class="text-2xl font-light">Saturday, April 25th, 2026</p>
+                <p class="text-sm text-stone-500 mt-2">Seven o'clock in the evening</p>
+            </div>
+
+            <div>
+                <h4 class="text-xs tracking-[0.3em] uppercase mb-4 text-stone-400">Location</h4>
+                <p class="text-2xl font-light">The Majestic Ballroom</p>
+                <p class="text-sm text-stone-500 mt-2">Cairo, Egypt</p>
+                
+                <a href="https://share.google/MaN6VTkL0KrebrVKT" target="_blank" class="inline-flex items-center mt-6 text-[10px] bg-stone-100 px-6 py-2 rounded-full tracking-widest uppercase hover:bg-stone-200 transition">
+                    <svg class="w-3 h-3 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path></svg>
+                    Open in Maps
+                </a>
+            </div>
+        </div>
+
+        <div class="py-10">
+            <p class="script-font text-4xl mb-10">Reception to follow</p>
+            <button class="px-12 py-4 border border-stone-900 text-stone-900 rounded-full tracking-widest text-[10px] uppercase font-bold hover:bg-stone-900 hover:text-white transition shadow-sm">
+                Confirm Attendance
+            </button>
+        </div>
+
+        <footer class="mt-32 opacity-30 text-[10px] tracking-[0.5em] uppercase pb-10">
+            #AlmarwaAndAbdelrahman
+        </footer>
+    </div>
+
+    <script>
+        function revealDetails() {
+            const details = document.getElementById('details-section');
+            const intro = document.getElementById('intro-screen');
+            
+            details.style.display = 'block';
+            details.classList.add('fade-in-up');
+            
+            // Scroll smoothly to the content
+            window.scrollTo({
+                top: window.innerHeight - 20,
+                behavior: 'smooth'
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => el.classList.add('active'));
+        });
+    </script>
+</body>
+</html>
